@@ -28,6 +28,20 @@ dashboard that highlights these findings. Furthermore, this repository give a de
 ### Dataset File
 Excel File (folder containing the dataset([SalesData CSV.csv](https://github.com/user-attachments/files/17621528/SalesData.CSV.csv))
 
+### Key Objectives:
+
+1. Clean and preprocess sales data for analysis
+2. Analyze sales trends and patterns using SQL Server queries
+3. Visualize critical sales performance metrics using Power BI dashboards
+4. Identify top products, regions with highest sales, and top customers
+
+### Methodology:
+
+1. Data Cleaning: Excel data manipulation and Pivot Tables
+2. Data Analysis: SQL Server queries for data modeling and insights
+3. Data Visualization: Power BI dashboards for interactive and dynamic visualization
+
+
 ### Exploratory Data Analysis (EDA)
 * Total Sales per Product Category
 * Sales Transactions in Each Region
@@ -67,7 +81,7 @@ total sales by product, region, and month using Pivot Table
 
 
 
-### SQL queries
+### SQL queries:
 
 ```
 [Uploacreate database LITAPROJECT_DB
@@ -150,4 +164,9 @@ group by Product
 Having sum(quantity * UnitPrice) = 0 
 ```
 
+### PowerBI Dashboard
 
+![WhatsApp Image 2024-11-08 at 16 33 10_c2ffb417](https://github.com/user-attachments/assets/7236e855-b7c4-4fe0-9ae4-a56c3e16a65f)
+
+### Conclusion
+This project presents a comprehensive methodology for cleaning, analyzing, and visualizing sales performance data for a retail store, employing Excel for data manipulation, SQL Server for querying, and Power BI for interactive dashboard creation, yielding key insights on top products, regions, and customers to support strategic business decision-making.
