@@ -28,18 +28,46 @@ dashboard that highlights these findings. Furthermore, this repository give a de
 ### Dataset File
 Excel File (folder containing the dataset([SalesData CSV.csv](https://github.com/user-attachments/files/17621528/SalesData.CSV.csv))
 
-Excel:
-o PerformED an initial exploration of the sales data by pivot tables to summarize
-total sales by product, region, and month using Pivot Table
-
 ### Exploratory Data Analysis (EDA)
 * Total Sales per Product Category
 * Sales Transactions in Each Region
 * Top Selling Product
 * Revenue per Product
-* Monthly Sales 
+* Monthly Sales for current year
+* Percentage of Sales Contributed by Region
+* Products with no sales in the last Quarter
 
-SQL queries
+Excel:
+Performed an initial exploration of the sales data by pivot tables to summarize
+total sales by product, region, and month using Pivot Table
+
+![image](https://github.com/user-attachments/assets/d2e4be1e-ee49-4a4a-9ed8-6abc4a03e10e)
+
+![image](https://github.com/user-attachments/assets/7c9cf525-8158-414b-b542-4f57bbed6fd8)
+
+![image](https://github.com/user-attachments/assets/17653d5b-3842-41c8-a12b-c3a45b7ebda9)
+
+### Line Chart visualizing MoM Change in Revenue comparing 2023-2024
+
+![image](https://github.com/user-attachments/assets/93383850-c367-4430-b2b1-ec8e8d67e866)
+
+### Product	Average Sales
+
+![image](https://github.com/user-attachments/assets/362ae9be-d21e-4d44-803d-12f7621a7c9b)
+
+ ### 2023-2024 Total Revenue %
+ 
+![image](https://github.com/user-attachments/assets/b4ce1f45-c791-4b46-89ec-b79335a37ffd)
+
+### Product by Total Sales and Total Quantity Sold
+
+![image](https://github.com/user-attachments/assets/f355b171-3893-406b-a543-c8ba3d620d57)
+						
+![image](https://github.com/user-attachments/assets/348b049e-c2a5-4be5-ae18-e19e28df92c2)
+
+
+
+### SQL queries
 
 ```
 [Uploacreate database LITAPROJECT_DB
@@ -48,20 +76,19 @@ SQL queries
 
  Select * from [dbo].[SalesData CSV]
 
-------(question 1) Total sales for each product------
+ ------(question 1) Total sales for each product------
 
 Select product, sum(Total_Sales)
 as Sales_by_Product 
 from [dbo].[SalesData CSV]
 group by product
 
--------(question 2) Number of sales transactions in each Region------
+------(question 2) Number of sales transactions in each Region------
 
 Select Region, sum(Total_sales)
 as sales_per_region
 from [dbo].[SalesData CSV]
 group by Region
-
 
 ----------(question 3) Highest-selling product by total sales value
 
@@ -76,8 +103,7 @@ Select Product, sum(Revenue)
 as Total_Revenue 
 from [SalesData CSV] 
 group by Product
-
----------Monthly sales totals for the current year
+--------Monthly sales totals for the current year
 ----Create	OrderMonth Column
 
 Alter table [dbo].[SalesData CSV]
@@ -85,13 +111,13 @@ Add OrderMonth nvarchar(50)
 Update [dbo].[SalesData CSV]
 set OrderMonth = DateName(Month,OrderDate)
 
-----to create OrderYearColumn
+ ----to create OrderYearColumn
 Alter Table [dbo].[SalesData CSV]
 Add OrderYear int
 update [dbo].[SalesData CSV]
 set OrderYear=Year(OrderDate)
 
-------(question 5) Monthly sales totals for the current year
+ ------(question 5) Monthly sales totals for the current year
 Select OrderMonth, sum(Quantity)
 as TotalSales
 from [dbo].[SalesData CSV]
@@ -106,7 +132,7 @@ from [dbo].[SalesData CSV]
 group by Customer_Id
 Order by TotalPurchase DESC
 
------------(question 7) Percentage of total sales contributed by each region
+ -----------(question 7) Percentage of total sales contributed by each region
 
 Select Region,
 sum(Revenue) / sum(quantity * UnitPrice) * 0.1
