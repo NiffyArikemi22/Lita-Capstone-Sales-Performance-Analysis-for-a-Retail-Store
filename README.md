@@ -20,9 +20,9 @@ dashboard that highlights these findings. Furthermore, this repository give a de
 - Quantity: Number of units sold
 
 ### Tool Used
-* Excel Function
-* SQL
-* PowerBI
+* Excel Function: Used for data cleaning (removing duplicates) and summarizing the data using pivot tables
+* SQL: Performed data analysis and created views for generationg insoghts
+* PowerBI: Used to visualize the finding through interactive dashboards.
 
 
 ### Dataset File
@@ -30,8 +30,14 @@ Excel File (folder containing the dataset([SalesData CSV.csv](https://github.com
 
 Excel:
 o PerformED an initial exploration of the sales data by pivot tables to summarize
-total sales by product, region, and month
+total sales by product, region, and month using Pivot Table
 
+### Exploratory Data Analysis (EDA)
+* Total Sales per Product Category
+* Sales Transactions in Each Region
+* Top Selling Product
+* Revenue per Product
+* Monthly Sales 
 
 SQL queries
 
