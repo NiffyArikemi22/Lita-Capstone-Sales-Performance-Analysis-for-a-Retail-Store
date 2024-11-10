@@ -21,7 +21,7 @@ dashboard that highlights these findings. Furthermore, this repository give a de
 
 ### Tool Used
 * Excel Function: Used for data cleaning (removing duplicates) and summarizing the data using pivot tables
-* SQL: Performed data analysis and created views for generationg insoghts
+* SQL: Performed data analysis and created views for generating insights
 * PowerBI: Used to visualize the finding through interactive dashboards.
 
 
