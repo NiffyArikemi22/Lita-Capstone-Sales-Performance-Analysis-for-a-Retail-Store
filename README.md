@@ -84,89 +84,121 @@ total sales by product, region, and month using Pivot Table
 ### SQL queries:
 
 ```
-[Uploacreate database LITAPROJECT_DB
+create database LITAPROJECT_DB
+```
 
------1ST PROJECT(Sales Performance Analysis for a Retail Store)
 
- Select * from [dbo].[SalesData CSV]
+``` Select * from [dbo].[SalesData CSV]```
 
- ------(question 1) Total sales for each product------
 
-Select product, sum(Total_Sales)
+ 1. Total sales for each Product
+
+```Select product, sum(Total_Sales)
 as Sales_by_Product 
 from [dbo].[SalesData CSV]
 group by product
+```
 
-------(question 2) Number of sales transactions in each Region------
+2. Number of sales transactions in each Region
 
-Select Region, sum(Total_sales)
+```Select Region, sum(Total_sales)
 as sales_per_region
 from [dbo].[SalesData CSV]
 group by Region
+```
 
-----------(question 3) Highest-selling product by total sales value
+3. Highest-selling Product by Total Sales value
 
-Select Product, Sum(Total_sales)
+```Select Product, Sum(Total_sales)
 as Highest_Selling_product 
 from [SalesData CSV]
 group by Product
+```
 
--------(question 4) Total revenue per product-----
+4.  Total revenue per Product
 
-Select Product, sum(Revenue) 
+```Select Product, sum(Revenue) 
 as Total_Revenue 
 from [SalesData CSV] 
 group by Product
---------Monthly sales totals for the current year
-----Create	OrderMonth Column
+```
+ - Monthly sales totals for the current year
+----Create OrderMonth Column
 
-Alter table [dbo].[SalesData CSV]
+```Alter table [dbo].[SalesData CSV]
 Add OrderMonth nvarchar(50)
 Update [dbo].[SalesData CSV]
 set OrderMonth = DateName(Month,OrderDate)
+```
 
- ----to create OrderYearColumn
-Alter Table [dbo].[SalesData CSV]
+ - To create OrderYearColumn
+
+```Alter Table [dbo].[SalesData CSV]
 Add OrderYear int
 update [dbo].[SalesData CSV]
 set OrderYear=Year(OrderDate)
+```
+ 
+ 5. Monthly sales totals for the current year
 
- ------(question 5) Monthly sales totals for the current year
-Select OrderMonth, sum(Quantity)
+```Select OrderMonth, sum(Quantity)
 as TotalSales
 from [dbo].[SalesData CSV]
 where OrderYear=2024
 group by OrderMonth
+```
 
+6. Top 5 customers by total purchase amount
 
------------(Question 6)Top 5 customers by total purchase amount
-Select Top 5 Customer_Id, 
+```Select Top 5 Customer_Id, 
 sum(Total_sales) as TotalPurchase
 from [dbo].[SalesData CSV]
 group by Customer_Id
 Order by TotalPurchase DESC
+```
 
- -----------(question 7) Percentage of total sales contributed by each region
+ 7. Percentage of total sales contributed by each region
 
-Select Region,
+```Select Region,
 sum(Revenue) / sum(quantity * UnitPrice) * 0.1
 as Percentage_of_Total_sales
 from [SalesData CSV]
 group by Region
 Order by Percentage_of_Total_sales
+```
 
--------(Question 8) Products with no sales in the last quarter
 
-select Product, sum(Total_Sales) as Sales
+8. Products with no sales in the last quarter
+
+```select Product, sum(Total_Sales) as Sales
 from [SalesData CSV]
 where Month(Orderdate) between 10 and 12
 group by Product
 Having sum(quantity * UnitPrice) = 0 
 ```
 
+
 ### PowerBI Dashboard
 
 ![WhatsApp Image 2024-11-08 at 16 33 10_c2ffb417](https://github.com/user-attachments/assets/7236e855-b7c4-4fe0-9ae4-a56c3e16a65f)
+
+### Example Insights
+
+1. *Sales Overview:*
+   - The total sales card shows 2M indicating strong sales performance.
+   - The average order value shows $211.78, suggesting effective upselling or pricing strategy.
+
+2. *Sales Trend Analysis:*
+   - The line chart shows a steady increase in sales month-over-month.
+   - The sales growth percentage card indicates a growth of 0% compared to the previous month.
+
+3. *Customer Insights:*
+   - There is no top customer per Total Sales.
+   - The segmentation pie chart reveals that the South region contributes to 60% of Total sales.
+
+4. *Product Performance:*
+   - The top products table highlights Shoes as the best-selling product with Total sales of $612,380.
+   - The bar chart shows that Shoes had strong sales in the last quarter.
 
 ### Conclusion
 This project presents a comprehensive methodology for cleaning, analyzing, and visualizing sales performance data for a retail store, employing Excel for data manipulation, SQL Server for querying, and Power BI for interactive dashboard creation, yielding key insights on top products, regions, and customers to support strategic business decision-making.
