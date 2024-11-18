@@ -182,7 +182,7 @@ Having sum(quantity * UnitPrice) = 0
 
 ![WhatsApp Image 2024-11-08 at 16 33 10_c2ffb417](https://github.com/user-attachments/assets/7236e855-b7c4-4fe0-9ae4-a56c3e16a65f)
 
-### PowerBI Dashboard Insights
+### PowerBI Dashboard Insights and interactivity
 
 1. *Sales Overview:*
    - The total sales card shows 2M indicating strong sales performance.
@@ -199,6 +199,11 @@ Having sum(quantity * UnitPrice) = 0
 4. *Product Performance:*
    - The top products table highlights Shoes as the best-selling product with Total sales of $612,380.
    - The bar chart shows that Shoes had strong sales in the last quarter.
+
+5. *Slicers:*
+  - *Slicer for Region:* To filter all visuals based on selected region(s).
+  - *Slicer for Product:* To filter visuals based on specific products.
+  - *OrderDate Slicer:* To allow users to filter data based on specific date ranges.
 
 ### Conclusion
 This project presents a comprehensive methodology for cleaning, analyzing, and visualizing sales performance data for a retail store, employing Excel for data manipulation, SQL Server for querying, and Power BI for interactive dashboard creation, yielding key insights on top products, regions, and customers to support strategic business decision-making.
