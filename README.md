@@ -182,7 +182,7 @@ Having sum(quantity * UnitPrice) = 0
 
 ![WhatsApp Image 2024-11-08 at 16 33 10_c2ffb417](https://github.com/user-attachments/assets/7236e855-b7c4-4fe0-9ae4-a56c3e16a65f)
 
-### Example Insights
+### PowerBI Dashboard Insights
 
 1. *Sales Overview:*
    - The total sales card shows 2M indicating strong sales performance.
